@@ -1,0 +1,18 @@
+<p>Listado de Heroes</p>
+<!-- en este caso es la estructura de un if y un else: si existe un heroe borrado entonces muestralo, si no muestra el elemento local #noBorrado -->
+<div *ngIf="heroeBorrado; else noBorrado">
+  <h3>
+    Heroe borrado: <small>{{ heroeBorrado }}</small>
+  </h3>
+</div>
+<!--  este template se mostrara por defecto hasta que exista un elemento borrado como lo indica ngIf -->
+<ng-template #noBorrado>
+  <h3>No se ha borrado nada</h3>
+</ng-template>
+<!-- este boton ejecutara el metodo "borrarHeroes()" recuerda que un metodo es como una funcion pero que esta dentro de una clase(tiene diferencias)-->
+<button (click)="borrarHeroe()">Borrar</button>
+
+<ul>
+  <!-- ngFor este bucle esta repitiedo, en este caso como en js se crea una variable con la cual hara el recorrido de el arreglo heroes -->
+  <li *ngFor="let heroe of heroes; let i = index">{{ i + 1 }}-{{ heroe }}</li>
+</ul>
